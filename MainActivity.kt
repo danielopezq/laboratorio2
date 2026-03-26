@@ -17,6 +17,8 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -50,6 +52,7 @@ class MainActivity : ComponentActivity() {
                 }
                 Column {
 
+                    //1
                     Column(
                         modifier = Modifier
                             .fillMaxSize()
@@ -134,6 +137,7 @@ class MainActivity : ComponentActivity() {
                             ),
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                             visualTransformation = PasswordVisualTransformation(),
+                            /*
                             trailingIcon = {
                                 if(hidden.value){
                                     Icon(
@@ -148,10 +152,30 @@ class MainActivity : ComponentActivity() {
                                     )
                                 }
                             },
+                            */
                             readOnly = false
                         )
+                        //boton
+                        @Composable
+                        fun MyFloatingButton() {
+                            FloatingActionButton(onClick = { /* Llamar funcion guardarPersona */ }) {
+                                Icon(Icons.Default.Add, contentDescription = "Guardar")
+                            }
+                        }
                     }
-
+                    //2
+                    Row(
+                        horizontalArrangement = Arrangement.Center
+                    ) {
+                        //boton2
+                        @Composable
+                        fun MyFloatingButton2() {
+                            FloatingActionButton(onClick = { /* Llamar funcion limpiar */ }) {
+                                Icon(Icons.Default.Add, contentDescription = "Limpiar")
+                            }
+                        }
+                    }
+                    //3
                     Column(
                         modifier = Modifier
                             .height(200.dp)
@@ -201,9 +225,3 @@ fun GreetingPreview() {
     }
 }
 
-@Composable
-fun botonGuardarPersona() {
-    FloatingActionButton(onClick = { /* LLamar función guardarPersona */ }) {
-        Icon(Icons.Default.Add, contentDescription = "Guardar")
-    }
-}
